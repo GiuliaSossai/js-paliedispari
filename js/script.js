@@ -41,15 +41,16 @@ let parolaInversa = invertiParola(parolaUtente);
 if(parolaUtente == parolaInversa){
     console.log('la parola è palindroma');
     const parola = document.getElementById('parola');
-    parola.innerHTML = `la parola è palindroma!`;
+    parola.innerHTML = `${parolaUtente}: la parola è palindroma!`;
   } else {
     console.log('la parola NON è palindroma');
-    parola.innerHTML = `la parola NON è palindroma!`;
+    parola.innerHTML = `${parolaUtente}: la parola NON è palindroma!`;
   }
-  
-function invertiParola(str){
-  let strInversa = str.split('').reverse().join('');  
-  return strInversa;
+
+//funzione per verificare se la parola scelta dall'utente è uguale a se stessa invertita
+function invertiParola(stringa){
+  let stringaInvertita = stringa.split('').reverse().join('');  
+  return stringaInvertita;
 }
 
 
@@ -71,9 +72,9 @@ let sceltaDefault = 'pari';
 if(sceltaUtente === sceltaDefault){
   //stampo il messaggio di output
   const risultato = document.getElementById('risultato');
-  risultato.innerHTML = `hai vinto!`;
+  risultato.innerHTML = `pari o dispari: hai vinto!`;
 } else {
-  risultato.innerHTML = `hai perso!`;
+  risultato.innerHTML = `pari o dispari: hai perso!`;
 }
 
 
