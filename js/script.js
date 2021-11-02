@@ -17,16 +17,40 @@ const parolaUtente = prompt('scrivi una parola!');
 console.log('parola scelta da utente:', parolaUtente);
 
 //ottengo l'array della stringa usando split
-let parolaDivisa = parolaUtente.split('');
-console.log('array parola:', parolaDivisa);
+//let parolaDivisa = parolaUtente.split('');
+//console.log('array parola:', parolaDivisa);
 
 //inverto l'array
-let parolaInvertita = parolaDivisa.reverse();
-console.log('inverto array:', parolaInvertita);
+//let parolaInvertita = parolaDivisa.reverse();
+//console.log('inverto array:', parolaInvertita);
 
 //unisco gli elementi dell'array per ottenere una stringa
-let parolaUnita = parolaInvertita.join('');
-console.log('unisco array in stringa invertita:', parolaUnita);
+//let parolaUnita = parolaInvertita.join('');
+//console.log('unisco array in stringa invertita:', parolaUnita);
+
+let str = controlloPalindroma(parolaUtente);
+
+const parola = document.getElementById('parola');
+
+
+function controlloPalindroma(str) {
+  // trovo la lunghezza della stringa
+  const lunghezzaStringa = str.length;
+  // ciclo for su metà stringa
+  for (let i = 0; i < lunghezzaStringa / 2; i++) {
+    // controllo su ogni posizione delle lettere
+    // controllo tra il primo e l'ultimo posto
+    if (str[i] !== str[lunghezzaStringa - 1 - i]) {
+      console.log("la parola NON è palindroma");
+
+      parola.innerHTML = `${parolaUtente}: la parola NON è palindroma!`;
+    }
+  }
+  console.log("la parola è palindroma");
+  
+  parola.innerHTML = `${parolaUtente}: la parola è palindroma!`;
+}
+
 
 //soluzione confrontando la parola scelta dall'utente e la parola invertita
 // if (parolaUtente === parolaUnita) {
@@ -36,22 +60,22 @@ console.log('unisco array in stringa invertita:', parolaUnita);
 // }
 
 //soluzione con funzione
-let parolaInversa = invertiParola(parolaUtente);
+//let parolaInversa = invertiParola(parolaUtente);
 
-if(parolaUtente == parolaInversa){
-    console.log('la parola è palindroma');
-    const parola = document.getElementById('parola');
-    parola.innerHTML = `${parolaUtente}: la parola è palindroma!`;
-  } else {
-    console.log('la parola NON è palindroma');
-    parola.innerHTML = `${parolaUtente}: la parola NON è palindroma!`;
-  }
+// if(parolaUtente == parolaInversa){
+//     console.log('la parola è palindroma');
+//     const parola = document.getElementById('parola');
+//     parola.innerHTML = `${parolaUtente}: la parola è palindroma!`;
+//   } else {
+//     console.log('la parola NON è palindroma');
+//     parola.innerHTML = `${parolaUtente}: la parola NON è palindroma!`;
+//   }
 
 //funzione per verificare se la parola scelta dall'utente è uguale a se stessa invertita
-function invertiParola(stringa){
-  let stringaInvertita = stringa.split('').reverse().join('');  
-  return stringaInvertita;
-}
+// function invertiParola(stringa){
+//   let stringaInvertita = stringa.split('').reverse().join('');  
+//   return stringaInvertita;
+// }
 
 
 
