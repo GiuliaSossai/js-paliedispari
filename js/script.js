@@ -32,32 +32,28 @@ let str = controlloPalindroma(parolaUtente);
 
 const parola = document.getElementById('parola');
 
-
-function controlloPalindroma(str) {
-  // trovo la lunghezza della stringa
-  const lunghezzaStringa = str.length;
-  // ciclo for su metà stringa
-  for (let i = 0; i < lunghezzaStringa / 2; i++) {
-    // controllo su ogni posizione delle lettere
-    // controllo tra il primo e l'ultimo posto
-    if (str[i] !== str[lunghezzaStringa - 1 - i]) {
-      console.log("la parola NON è palindroma");
-
-      parola.innerHTML = `${parolaUtente}: la parola NON è palindroma!`;
-    }
-  }
-  console.log("la parola è palindroma");
-  
+controlloPalindroma(parolaUtente)
+if(controlloPalindroma(parolaUtente)){
+  console.log('La parola è palindroma')
   parola.innerHTML = `${parolaUtente}: la parola è palindroma!`;
+}else{
+  console.log('La parola NON è palindroma')
+  parola.innerHTML = `${parolaUtente}: la parola NON è palindroma!`;
 }
 
+function controlloPalindroma(parola){
+  let parolaGirata = '';
 
-//soluzione confrontando la parola scelta dall'utente e la parola invertita
-// if (parolaUtente === parolaUnita) {
-//   console.log("la parola è palindroma");
-// } else {
-//   console.log("la parola NON è palindroma");
-// }
+  for(let i = parola.length - 1; i >= 0; i--){
+    parolaGirata += parola[i];
+    console.log(parolaGirata);
+  }
+
+
+  if(parolaGirata.toUpperCase() === parola.toUpperCase()) return true;
+  return false;
+}
+
 
 //soluzione con funzione
 //let parolaInversa = invertiParola(parolaUtente);
